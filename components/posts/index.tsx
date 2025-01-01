@@ -1,55 +1,17 @@
-'use client';
-
 import { formatter } from "@/lib/formatter";
-import type { Post } from "@/types";
+import { getPosts } from "@/lib/mdx";
 
 import { Link as NextViewTransition } from "next-view-transitions";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-interface PostProps {
-  category: string;
-  initialPosts?: Post[];
+interface PostsProps {
+  category?: string;
 }
 
-export const Posts = ({ category, initialPosts }: PostProps) => {
-  const [posts, setPosts] = useState<Post[]>(initialPosts || []);
-  const [isLoading, setIsLoading] = useState(!initialPosts);
-  const [error, setError] = useState<string | null>(null);
+export default function Posts({ category = "guides" }: PostsProps) {
+  const posts = getPosts();
 
-  useEffect(() => {
-    const loadPosts = async () => {
-      if (!initialPosts) {
-        try {
-          setIsLoading(true);
-          setError(null);
-          const response = await fetch(`/api/posts?category=${encodeURIComponent(category)}`);
-          if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error || 'Failed to fetch posts');
-          }
-          const fetchedPosts = await response.json();
-          setPosts(fetchedPosts);
-        } catch (error) {
-          console.error('Error loading posts:', error);
-          setError(error instanceof Error ? error.message : 'Failed to load posts');
-        } finally {
-          setIsLoading(false);
-        }
-      }
-    };
-
-    loadPosts();
-  }, [category, initialPosts]);
-
-  const Separator = () => <div className="border-border border-t" />;
-
-  if (isLoading) {
-    return <div className="mt-6">Loading posts...</div>;
-  }
-
-  if (error) {
-    return <div className="mt-6 text-red-500">Error: {error}</div>;
-  }
+  const Seperator = () => <div className="border-border border-t" />;
 
   if (posts.length === 0) {
     return null;
@@ -63,15 +25,17 @@ export const Posts = ({ category, initialPosts }: PostProps) => {
         </h2>
       </NextViewTransition>
 
-      {posts.map((post) => (
-        <React.Fragment key={post.slug}>
-          <Separator />
-          <NextViewTransition href={`/${category}/${post.slug}`} className="flex w-full justify-between py-2">
-            <p>{post.title}</p>
-            <p className="mt-0 text-muted">{formatter.date(new Date(post.time.created))}</p>
-          </NextViewTransition>
-        </React.Fragment>
-      ))}
+      {posts.map((post) => {
+        return (
+          <React.Fragment key={post.slug}>
+            <Seperator />
+            <NextViewTransition href={`/${category}/${post.slug}`} className="flex w-full justify-between py-2">
+              <p>{post.title}</p>
+              <p className="mt-0 text-muted">{formatter.date(new Date(post.time.created))}</p>
+            </NextViewTransition>
+          </React.Fragment>
+        );
+      })}
     </div>
   );
-};
+}

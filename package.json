@@ -4,14 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run mdx:timestamps && next build",
+    "build": "npm run lint && npm run mdx:timestamps && next build",
     "start": "next start",
     "postbuild": "next-sitemap",
     "mdx:timestamps": "node ./scripts/update-mdx-timestamps",
     "lint:style": "npx stylelint \"**/*.css\" --fix",
     "lint:biome": "npx biome check --fix --unsafe .",
     "lint:prettier": "npx prettier . --write --log-level warn",
-    "lint": "npx biome check --fix --unsafe ."
+    "lint": "npm run lint:style && npm run lint:prettier && npm run lint:biome"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
@@ -24,7 +24,6 @@
     "@radix-ui/react-icons": "^1.3.2",
     "@rehype-pretty/transformers": "^0.13.2",
     "@types/mdx": "^2.0.13",
-    "@vercel/analytics": "^1.4.1",
     "@vercel/edge": "^1.1.4",
     "@vercel/functions": "^1.5.2",
     "clsx": "^2.1.1",
@@ -61,7 +60,7 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
     "@tailwindcss/typography": "^0.5.15",
     "@trivago/prettier-plugin-sort-imports": "^5.2.0",
-    "@types/node": "^22.10.2",
+    "@types/node": "^22.10.3",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "eslint": "^9.17.0",

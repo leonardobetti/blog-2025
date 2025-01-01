@@ -6,7 +6,7 @@ import { formatter } from "@/lib/formatter";
 import { getPosts } from "@/lib/mdx";
 import { MDX } from "@/mdx-components";
 
-import React, { Suspense } from "react";
+import React from "react";
 import { readingTime } from "reading-time-estimator";
 
 interface Props {
@@ -14,20 +14,16 @@ interface Props {
   route: string;
 }
 
-const PostNavigationWrapper = async ({ route }: { route: string }) => {
-  const posts = await getPosts(route);
-  return <PostNavigation posts={posts} />;
-};
-
 export const Layout = ({ post, route }: Props) => {
-  const Separator = () => {
+  const posts = getPosts(route);
+
+  const Seperator = () => {
     return <div>⋅</div>;
   };
 
   const PublishedTime = () => {
     return <div>Published {formatter.date(new Date(post.time.created))}</div>;
   };
-  
   const UpdateTime = () => {
     return <div>Updated {formatter.date(new Date(post.time.updated))}</div>;
   };
@@ -44,17 +40,15 @@ export const Layout = ({ post, route }: Props) => {
         </div>
         <div className="mt-1 flex gap-2 text-muted text-small">
           <PublishedTime />
-          <Separator />
+          <Seperator />
           <UpdateTime />
-          <Separator />
+          <Seperator />
           <ReadingTime />
         </div>
       </div>
 
       <MDX source={post.content} />
-      <Suspense fallback={<div>Loading navigation...</div>}>
-        <PostNavigationWrapper route={route} />
-      </Suspense>
+      <PostNavigation posts={posts} />
       <TableOfContents />
     </React.Fragment>
   );

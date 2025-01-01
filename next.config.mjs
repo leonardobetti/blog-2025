@@ -4,6 +4,13 @@ import nextMDX from "@next/mdx";
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ["md", "mdx", "tsx", "ts", "jsx", "js"],
+  experimental: {
+    turbo: true,
+    mdxRs: true
+  },
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  }
 };
 
 const withMDX = nextMDX({

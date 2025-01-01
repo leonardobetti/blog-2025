@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import { Providers } from "@/components/providers";
 import { OpenGraph } from "@/lib/og";
 
-import { Analytics } from "@vercel/analytics/next";
 import clsx from "clsx";
 import { Inter } from "next/font/google";
 
@@ -31,7 +30,6 @@ export default function RootLayout({
             <article className="article">{children}</article>
           </main>
         </Providers>
-        <Analytics />
       </body>
     </html>
   );

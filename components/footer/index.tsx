@@ -1,4 +1,3 @@
-import Link from "@/components/link";
 import { AppThemeSwitcher } from "@/components/theme";
 
 const Footer = () => {

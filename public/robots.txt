@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://cameron.so/
+Host: https://next-sylph-portfolio.vercel.app/
 
 # Sitemaps
-Sitemap: https://cameron.so/sitemap.xml
+Sitemap: https://next-sylph-portfolio.vercel.app/sitemap.xml

@@ -6,23 +6,18 @@ import { Link } from "next-view-transitions";
 import { usePathname } from "next/navigation";
 
 interface PostNavigationProps {
-  posts: Post[];
+  posts: Array<Post>;
 }
 
 function PostNavigation({ posts }: PostNavigationProps) {
-  if (!Array.isArray(posts)) {
-    console.error("Posts is not an array:", posts);
-    return null;
-  }
-
-  const sortedPosts = posts.slice().sort((a, b) => {
+  posts.sort((a, b) => {
     return new Date(b.time.created).getTime() - new Date(a.time.created).getTime();
   });
 
   const currentSlug = usePathname().split("/").pop();
-  const currentIndex = sortedPosts.findIndex((post) => post.slug === currentSlug);
-  const previous = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
-  const next = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
+  const currentIndex = posts.findIndex((post) => post.slug === currentSlug);
+  const previous = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
+  const next = currentIndex > 0 ? posts[currentIndex - 1] : null;
 
   if (!previous && !next) {
     return null;
