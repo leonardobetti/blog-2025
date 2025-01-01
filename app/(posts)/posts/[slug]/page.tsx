@@ -10,9 +10,9 @@ import { notFound } from "next/navigation";
 const route = "posts";
 
 type Props = {
-  params: Promise<{
+  params: {
     slug: string;
-  }>;
+  };
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
@@ -25,8 +25,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const Posts = await getPosts(route);
-  const resolvedParams = await params;
-  const post = Posts.find((post) => post.slug === resolvedParams.slug);
+  const post = Posts.find((post) => post.slug === params.slug);
   
   const title = post ? post.title : "";
   const image = `${process.env.NEXT_PUBLIC_SITE_URL}api/og?title=${encodeURIComponent(title)}`;
@@ -44,10 +43,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page({ params, searchParams }: Props) {
   const Posts = await getPosts(route);
-  const resolvedParams = await params;
-  const post = Posts.find((post) => post.slug === resolvedParams.slug);
+  const post = Posts.find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
