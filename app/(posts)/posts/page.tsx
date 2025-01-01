@@ -21,7 +21,8 @@ export function generateMetadata() {
   };
 }
 
-export default function Page() {
+export default async function Page() {
+  // Initial data will be fetched by the client component
   return (
     <React.Fragment>
       <FadeIn.Item>

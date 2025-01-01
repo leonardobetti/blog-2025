@@ -4,26 +4,30 @@ import { Layout } from "@/components/screens/posts";
 import { getPosts } from "@/lib/mdx";
 import { OpenGraph } from "@/lib/og";
 
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 const route = "posts";
 
-const Posts = getPosts(route);
-
-interface PageProps {
-  params: {
+type Props = {
+  params: Promise<{
     slug: string;
-  };
-}
+  }>;
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
 export async function generateStaticParams() {
+  const Posts = await getPosts(route);
   return Posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-export function generateMetadata({ params }: PageProps) {
-  const post = Posts.find((post) => post.slug === params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const Posts = await getPosts(route);
+  const resolvedParams = await params;
+  const post = Posts.find((post) => post.slug === resolvedParams.slug);
+  
   const title = post ? post.title : "";
   const image = `${process.env.NEXT_PUBLIC_SITE_URL}api/og?title=${encodeURIComponent(title)}`;
 
@@ -40,8 +44,10 @@ export function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default function Page({ params }: PageProps) {
-  const post = Posts.find((post) => post.slug === params.slug);
+export default async function Page({ params }: Props) {
+  const Posts = await getPosts(route);
+  const resolvedParams = await params;
+  const post = Posts.find((post) => post.slug === resolvedParams.slug);
 
   if (!post) {
     notFound();

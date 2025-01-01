@@ -5,11 +5,10 @@ import path from "path";
 
 import matter from "gray-matter";
 
-function readFile(filePath: string): Post | null {
+async function readFile(filePath: string): Promise<Post | null> {
   try {
     const rawContent = fs.readFileSync(filePath, "utf-8");
     const { data, content } = matter(rawContent);
-
     const slug = path.basename(filePath, path.extname(filePath));
 
     return {
@@ -23,16 +22,29 @@ function readFile(filePath: string): Post | null {
   }
 }
 
-function getFiles(dir: string): string[] {
+async function getFiles(dir: string): Promise<string[]> {
   try {
-    return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
+    const files = fs.readdirSync(dir);
+    return files.filter((file) => path.extname(file) === ".mdx");
   } catch (error) {
     console.error(`Failed to read directory at ${dir}:`, error);
     return [];
   }
 }
 
-export function getPosts(directory: string): Post[] {
-  const files = getFiles(path.join(process.cwd(), "app", "(posts)", directory, "posts"));
-  return files.map((file) => readFile(path.join(process.cwd(), "app", "(posts)", directory, "posts", file))).filter((post): post is Post => post !== null);
+export async function getPosts(directory: string): Promise<Post[]> {
+  try {
+    const postsDirectory = path.join(process.cwd(), "app", "(posts)", directory, "posts");
+    const files = getFiles(postsDirectory);
+    const posts = await Promise.all(
+      (await files).map(async (file) => {
+        const filePath = path.join(process.cwd(), "app", "(posts)", directory, "posts", file);
+        return readFile(filePath);
+      })
+    );
+    return posts.filter((post): post is Post => post !== null);
+  } catch (error) {
+    console.error("Error getting posts:", error);
+    return [];
+  }
 }
