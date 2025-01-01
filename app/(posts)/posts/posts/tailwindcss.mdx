@@ -1,0 +1,70 @@
+---
+title: "Embracing Tailwind CSS"
+author: "Leonardo Betti"
+time:
+  created: "2024-12-12T20:54:05.150Z"
+  updated: "2024-12-20T08:00:38.860Z"
+---
+
+
+
+TailwindCSS is a controversial topic. Designers and web developers worldwide often turn their noses up when they encounter this term. Tailwind is, first and foremost, a powerful open-source tool for rapidly building prototypes, web apps and web pages directly in the HTML file. [TailwindCSS](https://tailwindcss.com/) also is a established open-source project and a complex ecosystem. We have plugins for [typography](https://github.com/tailwindlabs/tailwindcss-typography), [Radix colours](https://www.npmjs.com/package/tailwindcss-radix), [aspect ratio](https://github.com/tailwindlabs/tailwindcss-aspect-ratio) and [animations/transitions](https://github.com/romboHQ/tailwindcss-motion).
+
+```bash
+pnpm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+```
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+#### A long time ago in a galaxy far, far away...
+
+I work with teams responsible for launching web projects and can recall past CSS trends, such as SaaS, SCSS and HTML tables. I remember questioning a front-end colleague about it, and the response was that the team would need considerable time to learn the "Tailwind way". Even then, I wondered if the change might be justified by the speed and functionality the framework could bring to the project.
+
+Not long ago, all web projects needed to maintain at least two files: HTML with some tags and an enormous CSS file describing how these tags are styled and presented. In practice, this means that any developer who needs to update or modify CSS code must first read and understand the CSS code structure - in this case, we're talking about thousands of lines of code.
+
+All of this changed with [TailwindCSS](https://tailwindcss.com/): the HTML file contains predefined utility classes. To understand the code, one only needs to read the HTML file rather than the massive CSS file.
+
+Since the Bootstrap era, I personally considered it important for projects to build a robust design system independent of any framework. I also value clean, responsive code that's easy to maintain and understand. I appreciate semantic structures, such as ```<h1>```, ```<main>```, ```<nav>```, ```<section>```, and ```<footer>```. However, I had to revise my position after interacting with new AI software like [Cursor](https://www.cursor.com/) and [V0](https://v0.dev/).
+
+Due to LLM models, the argument of "learning the Tailwind way" has been overcome. Indeed, AI reads, maintains and produces code using [TailwindCSS](https://tailwindcss.com/). In the few months I tested Windsurf to update my professional portfolio, I managed to produce thousands of lines of code using [TailwindCSS](https://tailwindcss.com/) without reading a single line of official documentation. It works out-of-the-box with any modern framework like [NextJS](https://tailwindcss.com/docs/guides/nextjs) or [Astro](https://tailwindcss.com/docs/guides/astro), without one noticing or deciding.
+
+The code becomes simpler, easier to maintain, read and update. Because of this, [TailwindCSS](https://tailwindcss.com/) is now part of most new projects and will likely be supported natively by browsers in the near future. In a world full of React components, Tailwind CSS is becoming a standard that might replace CSS, regardless of whether you fancy it or not.
+
+#### Designers
+Unfortunately, designers currently struggle to contribute to companies' technical discussions. Many are rather proud and choose to remain on a sort of aesthetic pedestal. One must explain that a component is not the Figma file with purple labels - that's merely a representation of a component, which may (or may not) resemble the Figma file.
+
+Because of this, I believe modern design systems should be conceived on top of[TailwindCSS](https://tailwindcss.com/). This approach allows the design system to scale consistently, already inheriting a series of established atoms and components. I also think the new generation of Designer Engineers should understand Tailwind CSS as an initial step to collaborate on any web project.
+
+
+<video
+  src="/tailwind_video.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  className="w-full"
+/>
+
+#### Benefits
+1. **Utility-first Approach**
+   Instead of predesigned components, Tailwind CSS provides utility classes that can be combined to create unique designs. Think of it as using LEGO blocks to build a website. This allows for customisation without being restricted by pre-styled components.
+
+2. **Reusability and Consistency**
+   Once you learn the utility classes, you can easily replicate designs across different parts of your site without repeatedly writing custom CSS. This ensures a consistent look and speeds up the development process.
+
+3. **Purge Unused Styles**
+   Tailwind CSS automatically removes unused styles from your final CSS file, optimising performance and reducing file size.
+
+4. **Less Custom Code**
+   Tailwind's extensive library minimises the need for custom CSS. By relying on these utility classes, your code remains clean and efficient.
+
+5. **Streamlined Workflow**
+   Tailwind encourages a more direct approach to styling. Instead of moving between HTML files and CSS stylesheets, developers can apply styles directly within HTML, making the process quicker and more intuitive.
+
+#### Changes
+Technology requires constant updating in the face of changes and innovations. If you work in the field, you certainly need to reconsider convictions in light of reality. In retrospect, my resistance to [TailwindCSS](https://tailwindcss.com/) reflected a reluctance to challenge established practices. [TailwindCSS](https://tailwindcss.com/) isn’t just a CSS framework—it’s a testament to how embracing change can lead to better, more efficient ways of working. I changed my mind about Vanilla CSS and [TailwindCSS](https://tailwindcss.com/) - perhaps it's time for you to change as well.
