@@ -11,19 +11,19 @@ const route = "posts";
 const Posts = getPosts(route);
 
 interface PageProps {
-  params: Post;
+  params: {
+    slug: string;
+  };
 }
 
 export async function generateStaticParams() {
   return Posts.map((post) => ({
-    slug: `${post.slug}`,
+    slug: post.slug,
   }));
 }
 
 export function generateMetadata({ params }: PageProps) {
-  const post = Posts.find(
-    (post: { slug: string }) => post.slug === params.slug,
-  );
+  const post = Posts.find((post) => post.slug === params.slug);
   const title = post ? post.title : "";
   const image = `${process.env.NEXT_PUBLIC_SITE_URL}api/og?title=${encodeURIComponent(title)}`;
 
@@ -41,9 +41,7 @@ export function generateMetadata({ params }: PageProps) {
 }
 
 export default function Page({ params }: PageProps) {
-  const post = Posts.find(
-    (post: { slug: string }) => post.slug === params.slug,
-  );
+  const post = Posts.find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
