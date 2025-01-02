@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <section>
       <div className="mb-8">
-        <h1 className="text-lg font-semibold tracking-tighter mb-2">
+        <h1 className="mb-2 text-lg font-semibold tracking-tighter">
           Blog - Leonardo Betti
         </h1>
         <h2 className="mt-2 text-sm text-neutral-600">
