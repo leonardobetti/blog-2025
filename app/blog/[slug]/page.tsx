@@ -3,16 +3,19 @@ import { CustomMDX } from 'app/components/mdx'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
 
+type Params = Promise<{ slug: string }>
+
 export async function generateStaticParams() {
   let posts = getBlogPosts()
-
   return posts.map((post) => ({
     slug: post.slug,
   }))
 }
 
-export function generateMetadata({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug)
+export async function generateMetadata({ params }: { params: Params }) {
+  const { slug } = await params
+  let post = getBlogPosts().find((post) => post.slug === slug)
+
   if (!post) {
     return
   }
@@ -23,6 +26,7 @@ export function generateMetadata({ params }) {
     summary: description,
     image,
   } = post.metadata
+
   let ogImage = image
     ? image
     : `${baseUrl}/og?title=${encodeURIComponent(title)}`
@@ -51,8 +55,9 @@ export function generateMetadata({ params }) {
   }
 }
 
-export default function Blog({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug)
+export default async function Blog({ params }: { params: Params }) {
+  const { slug } = await params
+  let post = getBlogPosts().find((post) => post.slug === slug)
 
   if (!post) {
     notFound()
@@ -90,7 +95,7 @@ export default function Blog({ params }) {
           {formatDate(post.metadata.publishedAt)}
         </p>
       </div>
-      <article className="prose">
+      <article className="prose dark:prose-invert">
         <CustomMDX source={post.content} />
       </article>
     </section>

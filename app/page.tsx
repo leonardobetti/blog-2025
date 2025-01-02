@@ -8,7 +8,7 @@ export default function Page() {
         <h1 className="text-lg font-semibold tracking-tighter mb-2">
           Blog - Leonardo Betti
         </h1>
-        <h2 className="mt-2 text-sm text-slate-500">
+        <h2 className="mt-2 text-sm text-neutral-600">
           aka{' '}
           <Link
             href="https://github.com/leonardobetti"
@@ -19,7 +19,7 @@ export default function Page() {
           </Link>
         </h2>
       </div>
-      <p className="mb-4">
+      <p className="mb-4 text-neutral-600">
         Product Designer living in London UK. Currently collaborating with UI
         and Design Systems for web and cloud-based products. I'm into chess,
         graphic novels and React components. Working at{' '}
