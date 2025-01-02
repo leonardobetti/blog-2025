@@ -3,20 +3,8 @@ import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { highlight } from 'sugar-high'
 import { ArrowLeft } from 'lucide-react'
+import { BackButton } from 'app/components/back'
 import React from 'react'
-
-// Back Navigation Component
-function BackNavigation() {
-  return (
-    <Link
-      href="/"
-      className="flex items-center mb-8 text-sm transition-colors duration-150 text-neutral-600 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-indigo-500"
-    >
-      <ArrowLeft className="w-4 h-4 mr-1 dark:hover:text-indigo-500" />
-      Back
-    </Link>
-  )
-}
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -110,7 +98,7 @@ let components = {
 export function CustomMDX(props) {
   return (
     <article className="prose prose-neutral dark:prose-invert">
-      <BackNavigation />
+      <BackButton />
       <MDXRemote
         {...props}
         components={{ ...components, ...(props.components || {}) }}
