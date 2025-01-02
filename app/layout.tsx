@@ -64,7 +64,7 @@ export default function RootLayout({
           inter.className, // Apply Inter font to the entire body
         )}
       >
-        <main className="flex-auto min-w-0 mt-12 flex flex-col px-2 md:px-0">
+        <main className="flex flex-col flex-auto min-w-0 px-2 mt-12 md:px-0">
           {children}
           <Footer />
           <Analytics />

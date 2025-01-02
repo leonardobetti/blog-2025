@@ -19,15 +19,15 @@ export default function Page() {
           </Link>
         </h2>
       </div>
-      <p className="mb-4 text-neutral-600">
-        Product Designer living in London UK. Currently collaborating with UI
-        and Design Systems for web and cloud-based products. I'm into chess,
-        graphic novels and React components. Working at{' '}
+      <p className="mb-4 text-neutral-600 dark:hover:text-indigo-500">
+        Product Designer living in London UK. Working at{' '}
         <Link href="https://www.kew.org/" className="underline" target="_blank">
-          RGB
+          RBG
         </Link>
-        . Opinions expressed are solely my own and do not express the views or
-        opinions of my employer. Professional portfolio available{' '}
+        . Currently collaborating with UI and Design Systems for web and
+        cloud-based products. I'm into chess, graphic novels and React
+        components. Opinions expressed are solely my own and do not express the
+        views or opinions of my employer. Professional portfolio available{' '}
         <Link
           href="https://leonardobetti.co.uk/"
           className="underline"

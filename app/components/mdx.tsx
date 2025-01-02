@@ -10,9 +10,9 @@ function BackNavigation() {
   return (
     <Link
       href="/"
-      className="mb-8 flex items-center text-sm text-neutral-600 hover:text-neutral-800 transition-colors duration-150 dark:text-neutral-400 dark:hover:text-neutral-200"
+      className="flex items-center mb-8 text-sm transition-colors duration-150 text-neutral-600 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-indigo-500"
     >
-      <ArrowLeft className="mr-1 h-4 w-4" />
+      <ArrowLeft className="w-4 h-4 mr-1 dark:hover:text-indigo-500" />
       Back
     </Link>
   )

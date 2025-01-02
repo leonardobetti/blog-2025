@@ -66,9 +66,6 @@ importers:
       tailwindcss:
         specifier: 4.0.0-alpha.13
         version: 4.0.0-alpha.13
-      tailwindcss-motion:
-        specifier: ^1.0.0
-        version: 1.0.0(tailwindcss@4.0.0-alpha.13)
 
 packages:
 
@@ -1026,11 +1023,6 @@ packages:
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
-
-  tailwindcss-motion@1.0.0:
-    resolution: {integrity: sha512-Bc8XJxiSGjup0NHsph4OBGXXFfmbInFUhvVVluKPScQD1R2kDQTZIODqumsI/lONryeTpDdKzwuuw1a99Z38bQ==}
-    peerDependencies:
-      tailwindcss: '>=3.0.0 || insiders'
 
   tailwindcss@4.0.0-alpha.13:
     resolution: {integrity: sha512-YbLm8I10/bsGr7zrUNxn4Soj9Lc71anTWu/ulgry64rbBU4m0vov539+caeifAiKhsef2NUCW1twaqH3NfJd2Q==}
@@ -2221,10 +2213,6 @@ snapshots:
   sugar-high@0.7.5: {}
 
   supports-preserve-symlinks-flag@1.0.0: {}
-
-  tailwindcss-motion@1.0.0(tailwindcss@4.0.0-alpha.13):
-    dependencies:
-      tailwindcss: 4.0.0-alpha.13
 
   tailwindcss@4.0.0-alpha.13: {}
 

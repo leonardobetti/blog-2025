@@ -31,6 +31,8 @@
 
 html {
   min-width: 360px;
+  font-feature-settings: "liga" 1, "calt" 1;
+  -webkit-font-feature-settings: "liga" 1, "calt" 1;
 }
 
 .prose .anchor {
@@ -66,6 +68,8 @@ html {
 
 .prose code {
   @apply px-1 py-0.5 rounded-lg;
+  font-feature-settings: "liga" 1, "calt" 1;
+  -webkit-font-feature-settings: "liga" 1, "calt" 1;
 }
 
 .prose pre code {
