@@ -9,9 +9,9 @@ If you’re not living under a rock, you’ve likely heard about Bitcoin or cryp
 
 
 #### Not a piggy bank
-Occasionally, a user may want to purchase a hardware wallet based on the common belief that their satoshis are somehow stored "inside" the device. Because the device is offline most of the time and marketed as secure, they assume their assets are entirely safe, as if stored in a bank vault. However, this belief misrepresents how Bitcoin works.
+Occasionally, a user may want to purchase a [hardware wallet](https://bitcoin.org/en/wallets/hardware/?platform=hardware&step=5) based on the common belief that their satoshis are somehow stored "inside" the device. Because the device is offline most of the time and marketed as secure, they assume their assets are entirely safe, as if stored in a bank vault. However, this belief misrepresents how Bitcoin works.
 
-Bitcoin is a decentralised, peer-to-peer protocol within a distributed network. A Bitcoin transaction involves transferring bytes from one cryptographic key to another. A Bitcoin wallet, therefore, is simply a tool for interacting with these cryptographic keys: creating public/private key pairs, generating public addresses for receiving funds, checking balances, and more.
+Bitcoin is a decentralised, peer-to-peer protocol within a distributed network. A Bitcoin transaction involves transferring bytes from one cryptographic key to another. Therefore,  a Bitcoin wallet is simply a tool for interacting with these cryptographic keys: creating public/private key pairs, generating public addresses for receiving funds, checking balances and more.
 
 While hardware wallets provide an additional layer of security, they are not immune to risks like physical theft, tampering, or malware if misused. Moreover, they are not an "out-of-the-box" solution for private transactions, as many default to connecting to third-party public nodes.
 
@@ -19,10 +19,12 @@ The first step in securing your crypto assets is understanding who might attack 
 
 
 #### Recommendation for Beginners
-For newcomers to Bitcoin, I recommend using a USB stick with Tails Linux and [Electrum wallet](https://electrum.org). This combination offers robust security at minimal cost, whilst being suitable for both beginners and advanced users. [Tails](https://tails.boum.org) is a portable operating system focused on privacy and anonymity. It boots from a USB stick and leaves no trace on your computer. All internet traffic routes through the Tor network automatically, ensuring private communications.
-The Electrum wallet on Tails gives you complete control over your Bitcoin. You can generate addresses, make transactions and use advanced features, all through Tor for enhanced privacy.
-This setup needs only a USB stick and basic technical knowledge. Encrypt the USB with a strong password for added security. Electrum uses BIP-39 standard - you'll get recovery seed words to write down with **pen** and **paper**. Store these safely - they're crucial for accessing your funds.
+For newcomers to Bitcoin, I recommend using a USB stick with Tails Linux and [Electrum wallet](https://electrum.org). This combination offers robust security at minimal cost, whilst being suitable for both beginners and advanced users. 
+
+[Tails](https://tails.boum.org) is a portable operating system focused on privacy and anonymity. It boots from a USB stick and leaves no trace on your computer. All internet traffic routes through the [Tor](https://www.torproject.org/) network automatically, ensuring private communications. The [Electrum wallet](https://electrum.org) on [Tails](https://tails.boum.org) gives you complete control over your Bitcoin. You can generate addresses, make transactions and use advanced features, all through [Tor](https://www.torproject.org/) for enhanced privacy.
+
+This setup needs only a USB stick and basic technical knowledge. Also, I would reccomend to encrypt the USB with a strong password for added security. [Electrum](https://electrum.org) uses [BIP-39](https://trezor.io/learn/a/what-is-bip39) standard - you'll get recovery seed words to write down with **pen** and **paper**. Take note: store these safely - they're crucial for accessing your funds.
 
 
 #### Convenience Trade-off
-The main drawback is needing to boot from USB each time you want to check balances or spend Bitcoin. To make life easier, export your Zpub from Electrum and use it with [Sparrow](https://sparrowwallet.com/) wallet on your desktop. This watch-only wallet lets you monitor your funds (through Tor network or not) without booting Tails. You'll still need the USB system for spending, keeping your keys secure whilst maintaining convenience for everyday checking. This setup requires some technical knowledge and effort but offers a balance of affordability, security, and privacy for users willing to invest time in learning the basics.
+The main drawback is needing to boot from USB each time you want to check balances or spend Bitcoin. To make life easier, export your Zpub from [Electrum](https://electrum.org) and use it with [Sparrow](https://sparrowwallet.com/) wallet on your desktop. This watch-only wallet lets you monitor your funds (through [Tor](https://www.torproject.org/) network or not) without booting Tails. You'll still need the USB system for spending, keeping your keys secure whilst maintaining convenience for everyday checking. This setup requires some technical knowledge and effort but offers a balance of affordability, security, and privacy for users willing to invest time in learning the basics.
