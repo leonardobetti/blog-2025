@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
-import { ChevronLeft, ArrowLeft } from 'lucide-react'
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { ChevronLeft, ArrowLeft } from 'lucide-react';
 
 const ChevronIcon = ({ isHovered }: { isHovered: boolean }) => (
   <div className="relative w-4 h-4 me-2">
@@ -21,11 +21,11 @@ const ChevronIcon = ({ isHovered }: { isHovered: boolean }) => (
       <ArrowLeft className="w-4 h-4" />
     </div>
   </div>
-)
+);
 
 export function BackButton() {
-  const router = useRouter()
-  const [isHovered, setIsHovered] = useState(false)
+  const router = useRouter();
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <button
@@ -38,5 +38,5 @@ export function BackButton() {
       <ChevronIcon isHovered={isHovered} />
       Back
     </button>
-  )
+  );
 }

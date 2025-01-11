@@ -1,18 +1,18 @@
-import './global.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { Navbar } from './components/nav'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
-import Footer from './components/footer'
-import { baseUrl } from './sitemap'
+import './global.css';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import { Navbar } from './components/nav';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import Footer from './components/footer';
+import { baseUrl } from './sitemap';
 
 // Initialize Inter font with latin subset
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
-})
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -40,28 +40,28 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-}
+};
 
 // Utility function for conditional class names
-const cx = (...classes: string[]) => classes.filter(Boolean).join(' ')
+const cx = (...classes: string[]) => classes.filter(Boolean).join(' ');
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html
       lang="en"
       className={cx(
         'text-black bg-white dark:text-white dark:bg-black',
-        inter.variable,
+        inter.variable
       )}
     >
       <body
         className={cx(
           'antialiased max-w-xl mx-4 mt-8 lg:mx-auto',
-          inter.className, // Apply Inter font to the entire body
+          inter.className // Apply Inter font to the entire body
         )}
       >
         <main className="flex flex-col flex-auto min-w-0 px-2 mt-12 md:px-0">
@@ -72,5 +72,5 @@ export default function RootLayout({
         </main>
       </body>
     </html>
-  )
+  );
 }
