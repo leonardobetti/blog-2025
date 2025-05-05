@@ -1,39 +1,20 @@
-import { BlogPosts } from "app/components/posts";
-import Link from "next/link";
-import { Header } from "app/components/header";
-import Balancer from "react-wrap-balancer";
+import Header from "@/components/header"
+import Hero from "@/components/hero"
+import SectionFSB from "@/components/section-fsb"
+import SectionLovers from "@/components/section-lovers"
+import Footer from "@/components/footer"
 
-export default function Page() {
+export const dynamic = "force-static"
+export const revalidate = 86400 // Revalidate once per day
+
+export default function Home() {
   return (
-    <section>
+    <main className="min-h-screen bg-[#f5f5f5]">
       <Header />
-      <p className="mb-4 mt-8 text-neutral-600 dark:hover:text-indigo-500">
-        <Balancer>
-          Product Designer living in London UK. Working at{" "}
-          <Link
-            href="https://www.kew.org/"
-            className="underline"
-            target="_blank"
-          >
-            RBG
-          </Link>
-          . Currently collaborating with UI and Design Systems for web and
-          cloud-based products. I'm into chess, graphic novels and React
-          components. Opinions expressed are solely my own and do not express
-          the views or opinions of my employer. Professional portfolio available{" "}
-          <Link
-            href="https://leonardobetti.co.uk/"
-            className="underline"
-            target="_blank"
-          >
-            here
-          </Link>
-          .
-        </Balancer>
-      </p>
-      <div className="my-8">
-        <BlogPosts />
-      </div>
-    </section>
-  );
+      <Hero />
+      <SectionLovers />
+      <SectionFSB />
+      <Footer />
+    </main>
+  )
 }

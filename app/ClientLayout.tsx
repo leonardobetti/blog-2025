@@ -1,25 +1,26 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { ThemeProvider } from "@/components/theme-provider"
-import "./globals.css"
+"use client"
 
-export const metadata: Metadata = {
-  title: "Leonardo Betti - UX/UI Product Designer",
-  description:
-    "London-based UX/UI Product Designer specializing in product design, design systems, webdesign and webapps.",
-    generator: 'v0.dev'
+import type React from "react"
+import { ThemeProvider } from "@/components/theme-provider"
+import { useEffect, useState } from "react"
+
+interface RootLayoutProps {
+  children: React.ReactNode
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function ClientLayout({ children }: RootLayoutProps) {
+  // Add state to handle hydration
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen bg-[#f5f5f5] font-sans antialiased" suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          {children}
+          {isClient ? children : null}
         </ThemeProvider>
       </body>
     </html>
