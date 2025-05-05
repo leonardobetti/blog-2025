@@ -9,29 +9,15 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     unoptimized: true,
   },
+  // Remove the experimental optimizeCss option that requires critters
   experimental: {
-    optimizeCss: true,
+    // optimizeCss: true, // Removing this line
   },
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
-  },
-  // Add webpack configuration for video files
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.(mp4|webm)$/,
-      use: {
-        loader: 'file-loader',
-        options: {
-          publicPath: '/_next/static/media/',
-          outputPath: 'static/media/',
-          name: '[name].[hash].[ext]',
-        },
-      },
-    });
-    return config;
   },
 }
 
