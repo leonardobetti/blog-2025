@@ -44,7 +44,7 @@ export default function Footer() {
             <Link href="/" className="hover:underline">
               Leonardo Betti
             </Link>
-            . All rights reserved | leonardobetti [at] gmail [dot] com
+            . All rights reserved
           </span>
           <div className="flex items-center gap-4 text-muted-foreground">
             <Link href="/" className="text-sm hover:underline">
