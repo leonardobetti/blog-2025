@@ -17,13 +17,14 @@ export default function SectionFSB() {
           className={cn("absolute inset-0 z-0 h-full w-full opacity-30")}
         />
         <div className="relative h-[294px] w-full overflow-hidden sm:h-[368px]">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#054C81] to-[#105B92]"></div>
           <Image
-            src="https://images.unsplash.com/photo-1599202889720-cd3c0833efa1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGlwaG9uZXxlbnwwfHwwfHx8MA%3D%3D"
-            alt="FSB Nest Design System"
+            src="/fsb/fsb_home.png"
+            alt="FSB Betting Platform Interface"
             loading="lazy"
             width={900}
             height={600}
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            className="absolute inset-0 h-full w-full object-contain object-bottom transition-transform duration-300 group-hover:scale-105"
           />
         </div>
       </div>
