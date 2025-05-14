@@ -24,7 +24,7 @@ export default function SectionFSB() {
             loading="lazy"
             width={900}
             height={600}
-            className="absolute inset-0 h-full w-full object-contain object-bottom transition-transform duration-300 group-hover:scale-105"
+            className="absolute inset-0 h-full w-full scale-50 object-contain object-bottom transition-transform duration-300 sm:scale-100 sm:group-hover:scale-105"
           />
         </div>
       </div>

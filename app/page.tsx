@@ -3,6 +3,7 @@ import Hero from "@/components/hero"
 import SectionFSB from "@/components/section-fsb"
 import SectionKew from "@/components/section-kew"
 import SectionSpears from "@/components/section-spears"
+import Section5E from "@/components/section-5e"
 import SectionSeparator from "@/components/section-separator"
 import SectionTripleImages from "@/components/section-triple-images"
 import Footer from "@/components/footer"
@@ -23,6 +24,7 @@ export default function Home() {
       <SectionSeparator />
       <SectionSpears />
       <SectionSeparator />
+      <Section5E />
       <Footer />
     </main>
   )
